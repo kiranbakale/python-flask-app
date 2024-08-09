@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-secret-app-deployment
+  name: python-secret-app
   labels:
     app: python-secret-app
 spec:
