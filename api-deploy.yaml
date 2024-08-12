@@ -13,21 +13,9 @@ spec:
     metadata:
       labels:
         app: python-secret-app
-    spec:
-      serviceAccountName: nginx-deployment-sa
-      volumes: 
-        - name: db-creds
-          csi:
-            driver: secrets-store.csi.k8s.io
-            readOnly: true
-            volumeAttributes:
-              secretProviderClass: db-aws-secrets 
+    spec: 
       containers:
       - name: python-secret-app
-        image: kiran63/secretk8sapp:latest
-        volumeMounts:
-          - name: db-creds
-            mountPath: /tmp  # Mounting secret to /tmp
+        image: kiran63/secretk8sapp:v4
         ports:
         - containerPort: 5000
-
